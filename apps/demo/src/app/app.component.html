@@ -1,0 +1,202 @@
+<div>
+  <h1>Angular-React Demo</h1>
+  <h2>Getting up and running...</h2>
+
+  <ol>
+    <li>Add <i>AngularReactBrowserModule</i> to <i>app.module.ts</i> in place of the default <i>BrowserModule</i>.</li>
+    <li>Add <i>Fab[component]Module</i> or <i>Mat[component]Module</i> to <i>app.module.ts</i> imports.</li>
+    <li>Add Fabric or Material components to your views.</li>
+  </ol>
+</div>
+
+<fab-dropdown
+  [label]="'test label'"
+  [selectedKey]="selectedItem && selectedItem.key"
+  [options]="options"
+  [placeholder]="'select one'"
+  (onChange)="logEvent('dropdown change', $event)"
+  (onFocus)="logEvent('dropdown focus', $event)"
+  (onBlur)="logEvent('dropdown blur', $event)"
+></fab-dropdown>
+
+<fab-icon iconName="Add" (onClick)="onClickEventHandler($event)" (onMouseOver)="onMouseOverEventHandler($event)">
+</fab-icon>
+
+<fab-text-field [(value)]="textFieldValue"></fab-text-field>
+
+<span>{{ textFieldValue }}</span>
+
+<fab-spin-button
+  label="my label"
+  [value]="7 + ' cm'"
+  [validate]="onValidate"
+  [increment]="onIncrement"
+  [decrement]="onDecrement"
+></fab-spin-button>
+
+<div>
+  <fab-pivot>
+    <fab-pivot-item headerText="Tab 1"> <div>Tab 1's content</div> </fab-pivot-item>
+    <fab-pivot-item headerText="Tab 2"> <div>Tab 2's content</div> </fab-pivot-item>
+    <fab-pivot-item headerText="Tab 3"> <div>Tab 3's content</div> </fab-pivot-item>
+  </fab-pivot>
+
+  <fab-command-bar>
+    <items>
+      <fab-command-bar-item
+        key="run"
+        text="Run"
+        [iconProps]="{ iconName: 'CaretRight' }"
+        [disabled]="runDisabled"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="new"
+        text="New"
+        [iconProps]="{ iconName: 'Add' }"
+        (click)="onNewClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy1"
+        text="Copy1"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy2"
+        text="Copy2"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy3"
+        text="Copy3"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy4"
+        text="Copy4"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy5"
+        text="Copy5"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy6"
+        text="Copy6"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy7"
+        text="Copy7"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy8"
+        text="Copy8"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item
+        key="copy9"
+        text="Copy9"
+        [iconProps]="{ iconName: 'Copy' }"
+        (click)="onCopyClicked()"
+      ></fab-command-bar-item>
+      <fab-command-bar-item key="custom" text="custom text" (click)="onCopyClicked()">
+        <render>
+          <ng-template let-item="item"> <counter></counter> </ng-template>
+        </render>
+
+        <!--
+          <render-icon>
+            <ng-template let-contextualMenuItemProps="contextualMenuItemProps">
+              <div>custom icon</div>
+            </ng-template>
+          </render-icon>
+        -->
+      </fab-command-bar-item>
+      <fab-command-bar-item *ngIf="runDisabled" key="sometimesVisible" text="woosh"></fab-command-bar-item>
+    </items>
+
+    <far-items>
+      <fab-command-bar-item key="help" text="Help" [iconProps]="{ iconName: 'Help' }"></fab-command-bar-item>
+      <fab-command-bar-item
+        key="full-screen"
+        [iconOnly]="true"
+        [iconProps]="{ iconName: fullScreenIcon }"
+        (click)="toggleFullScreen()"
+      ></fab-command-bar-item>
+    </far-items>
+  </fab-command-bar>
+
+  <fab-calendar [strings]="strings" (onSelectDate)="onSelectDate($event)"></fab-calendar>
+
+  <fab-marquee-selection [isEnabled]="marqueeEnabled" [selection]="selection">
+    <fab-details-list
+      [selection]="selection"
+      [items]="detailItems"
+      (onColumnHeaderClick)="onColumnHeaderClicked($event)"
+    >
+      <columns>
+        <fab-details-list-column
+          key="column-1"
+          [minWidth]="150"
+          name="Column #1"
+          fieldName="field1"
+          [isResizable]="true"
+        >
+        </fab-details-list-column>
+        <fab-details-list-column
+          key="column-2"
+          [minWidth]="150"
+          name="Column #2"
+          fieldName="field2"
+          [isResizable]="true"
+        >
+        </fab-details-list-column>
+        <fab-details-list-column
+          key="column-3"
+          [minWidth]="150"
+          name="Custom Column"
+          fieldName="field3"
+          [isResizable]="true"
+        >
+          <render>
+            <ng-template let-index="index"> Custom content for index {{ index }} </ng-template>
+          </render>
+        </fab-details-list-column>
+      </columns>
+      <groups>
+        <fab-group-item key="group-1" name="Group #1" [count]="3" [startIndex]="0">
+          <fab-group-item
+            [level]="1"
+            key="group-1-1"
+            name="Nested Group #1.1"
+            [count]="1"
+            [startIndex]="0"
+          ></fab-group-item>
+          <fab-group-item
+            [level]="1"
+            key="group-1-2"
+            name="Nested Group #1.2"
+            [count]="2"
+            [startIndex]="1"
+          ></fab-group-item>
+        </fab-group-item>
+        <fab-group-item key="group-2" name="Group #2" [count]="1" [startIndex]="3"></fab-group-item>
+        <fab-group-item key="group-3" name="Group #3" [count]="1" [startIndex]="4"></fab-group-item>
+      </groups>
+    </fab-details-list>
+  </fab-marquee-selection>
+  <div>{{ selection.count || 0 }} item(s) selected</div>
+  <fab-default-button (onClick)="marqueeEnabled = !marqueeEnabled">
+    Marquee {{ marqueeEnabled === false ? 'Disabled' : 'Enabled' }}
+  </fab-default-button>
+</div>
