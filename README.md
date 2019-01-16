@@ -1,4 +1,4 @@
-# Test7
+# Angular 7.0.x setup to use latest angular-react built with 7.2.x
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) using [Nrwl Nx](https://nrwl.io/nx).
 
